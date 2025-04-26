@@ -9,7 +9,6 @@ urlpatterns = [
     path('', media_list, name='media_list'),
     path('edit/<int:pk>/', edit_media, name='edit_media'),
     path('delete/<int:pk>/', delete_media, name='delete_media'),
-    path('migrate-now/', migrate_now, name='migrate_now'),
 ]
 
 # Serve media files during development
