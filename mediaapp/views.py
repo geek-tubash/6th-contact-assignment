@@ -5,6 +5,7 @@ from .models import MediaFile
 from .forms import MediaFileForm
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.http import HttpResponse  # ADD THIS for migrate_now
 
 def upload_media(request):
     if request.method == 'POST':
@@ -43,3 +44,9 @@ def delete_media(request, pk):
     media = get_object_or_404(MediaFile, pk=pk)
     media.delete()
     return redirect('media_list')
+
+# ⬇️ ADD THIS AT THE BOTTOM
+def migrate_now(request):
+    call_command('makemigrations')
+    call_command('migrate')
+    return HttpResponse("Migration completed successfully!")
