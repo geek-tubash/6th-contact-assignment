@@ -69,7 +69,14 @@ WSGI_APPLICATION = 'multimedia_project.wsgi.application'
 
 # Database
 DATABASES = {
-    'default': env.db(),  # Picks from DATABASE_URL
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'multimedia_db_630h',
+        'USER': 'multimedia_user',
+        'PASSWORD': 'siGoqkdRQtff3Z1jwwa3Nh5DkLL4QlXT',
+        'HOST': 'dpg-d05c28a4d50c73et5iq0-a.oregon-postgres.render.com',
+        'PORT': '5432',
+    }
 }
 
 # Password validation
