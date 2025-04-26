@@ -46,7 +46,10 @@ def delete_media(request, pk):
     return redirect('media_list')
 
 # ⬇️ ADD THIS AT THE BOTTOM
-def migrate_now(request):
-    call_command('makemigrations')
+# mediaapp/views.py
+from django.http import HttpResponse
+from django.core.management import call_command
+
+def run_migrations(request):
     call_command('migrate')
-    return HttpResponse("Migration completed successfully!")
+    return HttpResponse("Migrations completed successfully!")
